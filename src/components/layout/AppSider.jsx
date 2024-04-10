@@ -12,6 +12,9 @@ const data = [
     'Man charged over missing wedding girl.',
     'Los Angeles battles huge wildfires.',
   ];
+  function percentDifference(a, b) {
+     return 100 * Math.abs((a - b) / ((a + b) / 2))
+  }
 
 export default function AppSider() {
 
@@ -28,7 +31,10 @@ export default function AppSider() {
             setAssets(assets.map((asset) =>{
                 const coin = result.find((c) => c.id === asset.id)
                 return {
-                    grow: asset.price < coin.price
+                    grow: asset.price < coin.price,
+                    growPercent: percentDifference(asset.price, coin.price),
+                    totalAmount: asset.amount * coin.price,
+                    totalProfit: asset.amount * coin.price - asset.amount * asset.price,
                     ...assets
                 }
             }))
