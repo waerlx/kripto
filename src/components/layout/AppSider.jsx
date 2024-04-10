@@ -64,4 +64,14 @@ if (loading) {
                 <Statistic
                     title="Idle"
                     value={9.3}
-                    precision=
+                    precision={2}
+                    valueStyle={{ color: '#cf1322' }}
+                    prefix={<ArrowDownOutlined />}
+                    suffix="%"
+                />
+            </Card>
+        </Layout.Sider>
+
+    )
+
+}
